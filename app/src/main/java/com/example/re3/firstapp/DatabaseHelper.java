@@ -45,7 +45,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 TABLE +
                 " (" + COLUMN_NAME + ") VALUES ('"+ filePath +"')";
         this.getWritableDatabase().execSQL(insertQuery);
-
     }
     public Cursor cursorGetAllDAta(){
 
