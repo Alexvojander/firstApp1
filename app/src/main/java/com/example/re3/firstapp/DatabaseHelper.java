@@ -9,9 +9,6 @@ import android.content.ContentValues;
 import android.os.Environment;
 
 
-/**
- * Created by Alexey on 28.06.2016.
- */
 public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String DATABASE_NAME = "musicStore.db"; // название бд
     private static final int SCHEMA =611; // версия базы данных
@@ -53,6 +50,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public Cursor cursorGetAllDAta(){
 
         return  this.getReadableDatabase().rawQuery("select * from "+ DatabaseHelper.TABLE, null);
+    }
+    public void deleteRow(String condition){
+        String deleteQuery="DELETE FROM " + TABLE +" WHERE "+condition;
+        this.getWritableDatabase().execSQL(deleteQuery);
     }
 
 }
